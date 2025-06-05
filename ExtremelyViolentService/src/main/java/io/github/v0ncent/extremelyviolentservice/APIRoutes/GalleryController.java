@@ -89,6 +89,8 @@ public final class GalleryController {
         LOGGER.info("Request to update entry: {} on: {} from: {}", id, LocalDate.now(), request.getRemoteAddr());
 
         try {
+            model.setId(id);
+
             galleryRepository.save(model);
 
             LOGGER.info("Updated entry: {} on: {} from: {}", id, LocalDate.now(), request.getRemoteAddr());

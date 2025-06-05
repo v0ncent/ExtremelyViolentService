@@ -37,7 +37,7 @@ dependencies {
     implementation(platform("org.mongodb:mongodb-driver-bom:5.5.0"))
     implementation 'io.github.cdimascio:java-dotenv:5.2.2'
     implementation 'org.mongodb:mongodb-driver-sync'
-    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.5'
+    implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.13'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
