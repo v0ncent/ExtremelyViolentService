@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/news")
-public class NewsController extends APIRoute<NewsModel> {
+public final class NewsController extends APIRoute<NewsModel> {
     @Autowired
     private NewsRepository newsRepository;
 

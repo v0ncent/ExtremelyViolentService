@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/comics")
-public class ComicsController extends APIRoute<ComicsModel> {
+public final class ComicsController extends APIRoute<ComicsModel> {
     @Autowired
     private ComicsRepository comicsRepository;
 
