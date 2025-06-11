@@ -20,5 +20,5 @@ public final class DBSequence {
      *  getter for Sequence integer of object instance
      */
     @Getter
-    private int seq;
+    private long seq;
 }
