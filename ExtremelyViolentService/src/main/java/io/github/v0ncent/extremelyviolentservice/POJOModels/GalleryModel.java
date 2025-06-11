@@ -6,8 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("gallery")
 public final class GalleryModel implements Model {
-    public static final String sequence_name = Constants.SequenceNames.GALLERY_SEQ;
-
     private final String excerpt = Constants.Excerpts.GALLERY_EXCERPT;
     private final String tags = Constants.Tags.GALLERY_TAG;
 
@@ -34,10 +32,6 @@ public final class GalleryModel implements Model {
 
     public String getTags() {
         return tags;
-    }
-
-    public long getId() {
-        return id;
     }
 
     public String getTitle() {
@@ -88,8 +82,19 @@ public final class GalleryModel implements Model {
         this.title = title;
     }
 
+    @Override
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Override
+    public String getSequenceName() {
+        return Constants.SequenceNames.GALLERY_SEQ;
+    }
+
+    @Override
+    public long getId() {
+        return id;
     }
 
 }
