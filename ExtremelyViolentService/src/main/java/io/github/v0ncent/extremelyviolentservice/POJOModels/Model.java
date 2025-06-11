@@ -12,6 +12,10 @@ public abstract class Model {
     protected abstract String getExcerpt();
     protected abstract String getTags();
 
+    // keep so it posts these fields to db
+    private final String excerpt = getExcerpt();
+    private final String tags = getTags();
+
     @Id
     private long id;
 
