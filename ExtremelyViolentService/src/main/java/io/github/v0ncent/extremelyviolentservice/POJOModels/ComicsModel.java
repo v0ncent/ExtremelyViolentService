@@ -11,9 +11,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public final class ComicsModel extends Model {
     private final boolean series;
 
-    public ComicsModel(long id, String title, String slug, String coverImage, String date, boolean isSeries) {
+    private final String description;
+
+    public ComicsModel(long id, String title, String slug, String coverImage, String date, boolean isSeries, String description) {
         super(id, title, slug, coverImage, date);
         this.series = isSeries;
+        this.description = description;
     }
 
     @Override
