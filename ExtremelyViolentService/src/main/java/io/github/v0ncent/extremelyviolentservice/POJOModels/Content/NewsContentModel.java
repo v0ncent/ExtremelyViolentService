@@ -1,4 +1,4 @@
-package io.github.v0ncent.extremelyviolentservice.POJOModels;
+package io.github.v0ncent.extremelyviolentservice.POJOModels.Content;
 
 import io.github.v0ncent.extremelyviolentservice.Constants;
 import lombok.Getter;
@@ -8,10 +8,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Getter
 @Document("news")
-public class NewsModel extends Model {
+public class NewsContentModel extends ContentModel {
     private String html;
 
-    public NewsModel(long id, String title, String slug, String coverImage, String date, String html) {
+    public NewsContentModel(long id, String title, String slug, String coverImage, String date, String html) {
         super(id, title, slug, coverImage, date);
         this.html = html;
     }

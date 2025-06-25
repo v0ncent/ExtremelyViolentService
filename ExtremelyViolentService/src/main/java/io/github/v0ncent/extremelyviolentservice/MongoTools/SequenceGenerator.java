@@ -1,6 +1,6 @@
 package io.github.v0ncent.extremelyviolentservice.MongoTools;
 
-import io.github.v0ncent.extremelyviolentservice.POJOModels.DBSequence;
+import io.github.v0ncent.extremelyviolentservice.POJOModels.DBSequenceModel;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,10 +31,10 @@ public final class SequenceGenerator {
 
         Update update = new Update().inc("seq", 1);
 
-        DBSequence seq = mongoOperations
+        DBSequenceModel seq = mongoOperations
                 .findAndModify(query, update,
                         options().returnNew(true).upsert(true),
-                        DBSequence.class);
+                        DBSequenceModel.class);
 
         if (!Objects.isNull(seq)) {
             LOGGER.info("Sequence found: {}", seq);

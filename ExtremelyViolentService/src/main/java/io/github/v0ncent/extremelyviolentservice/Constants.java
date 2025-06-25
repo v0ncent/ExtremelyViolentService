@@ -5,6 +5,7 @@ public final class Constants {
         public static final String GALLERY_SEQ = "gallery_seq";
         public static final String COMICS_SEQ = "comics_seq";
         public static final String NEWS_SEQ = "news_seq";
+        public static final String ADMIN_SEQ = "admin_seq";
     }
 
     public static final class Excerpts {
@@ -19,13 +20,4 @@ public final class Constants {
         public static final String NEWS_TAG = "- news";
     }
 
-    public static final class Properties {
-        public static final String APPLICATION_NAME = "ExtremelyViolentService";
-        public static final String MONGO_URI = Config.get("MONGO_URI");
-        public static final String MONGO_DATABASE = Config.get("MONGODB_DATABASE");
-
-        public static final String APPLICATION_NAME_PROP = "spring.application.name";
-        public static final String MONGO_URI_PROP = "spring.data.mongodb.uri";
-        public static final String MONGO_DATABASE_PROP = "spring.data.mongodb.database";
-    }
 }

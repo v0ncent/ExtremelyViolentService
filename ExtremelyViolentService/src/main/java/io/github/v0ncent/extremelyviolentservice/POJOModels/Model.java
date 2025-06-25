@@ -9,23 +9,10 @@ import org.springframework.data.annotation.Id;
 public abstract class Model {
     public abstract String getSequenceName();
 
-    protected abstract String getExcerpt();
-    protected abstract String getTags();
-
-    // keep so it posts these fields to db
-    private final String excerpt = getExcerpt();
-    private final String tags = getTags();
-
     @Id
-    private long id;
+    private long Id;
 
-    private String title, slug, date, coverImage;
-
-    public Model(long id, String title, String slug, String coverImage, String date) {
-        this.id = id;
-        this.title = title;
-        this.slug = slug;
-        this.coverImage = coverImage;
-        this.date = date;
+    public Model(long id) {
+        this.Id = id;
     }
 }

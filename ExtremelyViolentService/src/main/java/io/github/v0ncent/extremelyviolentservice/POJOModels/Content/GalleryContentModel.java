@@ -1,4 +1,4 @@
-package io.github.v0ncent.extremelyviolentservice.POJOModels;
+package io.github.v0ncent.extremelyviolentservice.POJOModels.Content;
 
 import io.github.v0ncent.extremelyviolentservice.Constants;
 import lombok.Getter;
@@ -8,11 +8,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @Getter
 @Document("gallery")
-public final class GalleryModel extends Model {
+public final class GalleryContentModel extends ContentModel {
     private long width;
     private long height;
 
-    public GalleryModel(long id, String title, String slug, String coverImage, String date, long width, long height) {
+    public GalleryContentModel(long id, String title, String slug, String coverImage, String date, long width, long height) {
         super(id, title, slug, coverImage, date);
         this.width = width;
         this.height = height;

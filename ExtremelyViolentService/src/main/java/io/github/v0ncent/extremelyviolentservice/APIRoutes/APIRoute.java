@@ -122,7 +122,7 @@ public abstract class APIRoute<T extends Model> {
         }
     }
 
-    public void logRequest(@Nullable Long id, RequestType requestType, HttpServletRequest request) {
+    private void logRequest(@Nullable Long id, RequestType requestType, HttpServletRequest request) {
         if (id == null) {
             LOGGER.info("Request to {} on: {} from: {}", requestType, LocalDate.now(), request.getRemoteAddr());
             return;
@@ -131,7 +131,7 @@ public abstract class APIRoute<T extends Model> {
         LOGGER.info("Request to {} entry: {} on: {} from: {}", id, requestType, LocalDate.now(), request.getRemoteAddr());
     }
 
-    public void logResponse(@Nullable Long id, RequestType requestType, HttpServletRequest request, ResponseType responseType) {
+    private void logResponse(@Nullable Long id, RequestType requestType, HttpServletRequest request, ResponseType responseType) {
         if (Objects.requireNonNull(responseType) == ResponseType.ERROR) {
             LOGGER.info("Failed to complete {} request of entry id: {} on: {} from: {}",
                     request,
