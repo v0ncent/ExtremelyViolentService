@@ -10,9 +10,9 @@ public abstract class Model {
     public abstract String getSequenceName();
 
     @Id
-    private long Id;
+    private long id;
 
     public Model(long id) {
-        this.Id = id;
+        this.id = id;
     }
 }

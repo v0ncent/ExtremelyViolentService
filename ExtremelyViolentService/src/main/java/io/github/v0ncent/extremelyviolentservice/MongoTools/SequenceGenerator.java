@@ -4,6 +4,7 @@ import io.github.v0ncent.extremelyviolentservice.POJOModels.DBSequenceModel;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -18,11 +19,8 @@ import static org.springframework.data.mongodb.core.FindAndModifyOptions.options
 public final class SequenceGenerator {
     private static final Logger LOGGER = LoggerFactory.getLogger(SequenceGenerator.class);
 
-    private final MongoOperations mongoOperations;
-
-    public SequenceGenerator(MongoOperations mongoOperations) {
-        this.mongoOperations = mongoOperations;
-    }
+    @Autowired
+    private MongoOperations mongoOperations;
 
     public long getSequence(String sequenceName, HttpServletRequest request) {
         LOGGER.info("Request to get sequence: {} from: {}", sequenceName, request.getRemoteAddr());
