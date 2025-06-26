@@ -1,10 +1,12 @@
 package io.github.v0ncent.extremelyviolentservice.MongoTools;
 
+import io.github.v0ncent.extremelyviolentservice.Constants;
 import io.github.v0ncent.extremelyviolentservice.POJOModels.DBSequenceModel;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -20,6 +22,7 @@ public final class SequenceGenerator {
     private static final Logger LOGGER = LoggerFactory.getLogger(SequenceGenerator.class);
 
     @Autowired
+    @Qualifier(Constants.MongoTemplateReferences.SEQUENCE_MONGO_TEMPLATE_REFERENCE)
     private MongoOperations mongoOperations;
 
     public long getSequence(String sequenceName, HttpServletRequest request) {

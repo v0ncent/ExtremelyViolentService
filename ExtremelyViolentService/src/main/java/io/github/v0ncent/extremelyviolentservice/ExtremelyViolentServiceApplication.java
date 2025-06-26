@@ -20,11 +20,14 @@ public class ExtremelyViolentServiceApplication {
         // register properties here so we can use .env
         final Map<String, Object> props = new HashMap<>();
 
-        props.put("spring.application.name", "ExtremelyViolentService");
-        props.put("spring.data.mongodb.uri", Config.get("MONGO_URI"));
-        props.put("spring.data.mongodb.database", Config.get("MONGODB_CONTENT_DATABASE"));
-        props.put("logging.level.org.springframework.data.mongodb", "DEBUG");
-        props.put("logging.level.com.mongodb", "DEBUG");
+        props.put(Constants.PropertyNames.SPRING_APPLICATION_NAME, Constants.PropertyValues.SPRING_APPLICATION_NAME);
+
+        props.put(Constants.PropertyNames.SPRING_DATA_MONGODB_URI, Constants.PropertyValues.SPRING_DATA_MONGODB_URI);
+        props.put(Constants.PropertyNames.SPRING_DATA_MONGODB_DATABASE, Constants.PropertyValues.SPRING_DATA_MONGODB_DATABASE);
+
+        props.put(Constants.PropertyNames.LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_DATA_MONGODB,
+                Constants.PropertyValues.LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_DATA_MONGODB);
+        props.put(Constants.PropertyNames.LOGGING_LEVEL_COM_MONGODB, Constants.PropertyValues.LOGGING_LEVEL_COM_MONGODB);
 
         app.setDefaultProperties(props);
         app.run(args);
