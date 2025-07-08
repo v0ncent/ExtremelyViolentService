@@ -3,11 +3,11 @@ package io.github.v0ncent.extremelyviolentservice.POJOModels.Content;
 import io.github.v0ncent.extremelyviolentservice.POJOModels.Model;
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 
 @Setter
 @Getter
 public abstract class ContentModel extends Model {
-    public abstract String getSequenceName();
 
     protected abstract String getExcerpt();
     protected abstract String getTags();
@@ -18,7 +18,7 @@ public abstract class ContentModel extends Model {
 
     private String title, slug, date, coverImage;
 
-    public ContentModel(long id, String title, String slug, String coverImage, String date) {
+    public ContentModel(ObjectId id, String title, String slug, String coverImage, String date) {
         super(id);
         this.title = title;
         this.slug = slug;

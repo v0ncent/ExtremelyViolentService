@@ -2,6 +2,7 @@ package io.github.v0ncent.extremelyviolentservice.POJOModels;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Setter
@@ -13,13 +14,10 @@ public class UserDataModel extends Model {
     private String authProvider;
     private boolean isAdmin;
     private String imagePath;
+    private String userName;
 
-    public UserDataModel(long id) {
+    public UserDataModel(ObjectId id) {
         super(id);
     }
 
-    @Override
-    public String getSequenceName() {
-        return "userpreferences_seq";
-    }
 }

@@ -3,6 +3,7 @@ package io.github.v0ncent.extremelyviolentservice.POJOModels.Content;
 import io.github.v0ncent.extremelyviolentservice.Constants;
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Setter
@@ -13,15 +14,10 @@ public final class ComicsContentModel extends ContentModel {
 
     private final String description;
 
-    public ComicsContentModel(long id, String title, String slug, String coverImage, String date, boolean isSeries, String description) {
+    public ComicsContentModel(ObjectId id, String title, String slug, String coverImage, String date, boolean isSeries, String description) {
         super(id, title, slug, coverImage, date);
         this.series = isSeries;
         this.description = description;
-    }
-
-    @Override
-    public String getSequenceName() {
-        return Constants.SequenceNames.COMICS_SEQ;
     }
 
     @Override

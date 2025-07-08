@@ -28,11 +28,6 @@ public class MongoConfig {
         return buildMongoTemplate(Constants.EnvironmentVariables.MONGODB_ADMIN_DATABASE);
     }
 
-    @Bean(name = Constants.MongoTemplateReferences.SEQUENCE_MONGO_TEMPLATE_REFERENCE)
-    public MongoTemplate sequenceMongoTemplate() {
-        return buildMongoTemplate(Constants.EnvironmentVariables.MONGODB_SEQUENCE_DATABASE);
-    }
-
     @Bean(name = Constants.MongoTemplateReferences.USERDATA_MONGO_TEMPLATE_REFERENCE)
     public MongoTemplate userDataMongoTemplate() {
         return buildMongoTemplate(Constants.EnvironmentVariables.MONGODB_USERDATA_DATABASE);

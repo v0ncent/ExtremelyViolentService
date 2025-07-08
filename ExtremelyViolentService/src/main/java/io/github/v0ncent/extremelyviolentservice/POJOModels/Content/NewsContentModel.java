@@ -3,6 +3,7 @@ package io.github.v0ncent.extremelyviolentservice.POJOModels.Content;
 import io.github.v0ncent.extremelyviolentservice.Constants;
 import lombok.Getter;
 import lombok.Setter;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Setter
@@ -11,14 +12,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class NewsContentModel extends ContentModel {
     private String html;
 
-    public NewsContentModel(long id, String title, String slug, String coverImage, String date, String html) {
+    public NewsContentModel(ObjectId id, String title, String slug, String coverImage, String date, String html) {
         super(id, title, slug, coverImage, date);
         this.html = html;
-    }
-
-    @Override
-    public String getSequenceName() {
-        return Constants.SequenceNames.NEWS_SEQ;
     }
 
     @Override
