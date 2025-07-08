@@ -28,12 +28,14 @@ public final class Constants {
         public static final String CONTENT_MONGO_TEMPLATE_REFERENCE = "contentMongoTemplate";
         public static final String ADMIN_MONGO_TEMPLATE_REFERENCE = "adminMongoTemplate";
         public static final String SEQUENCE_MONGO_TEMPLATE_REFERENCE = "sequenceMongoTemplate";
+        public static final String USERDATA_MONGO_TEMPLATE_REFERENCE = "userDataMongoTemplate";
     }
 
     public static final class EnvironmentVariables {
         public static final String MONGODB_CONTENT_DATABASE = "MONGODB_CONTENT_DATABASE";
         public static final String MONGODB_ADMIN_DATABASE = "MONGODB_ADMIN_DATABASE";
         public static final String MONGODB_SEQUENCE_DATABASE = "MONGODB_SEQUENCE_DATABASE";
+        public static final String MONGODB_USERDATA_DATABASE = "MONGODB_USERDATA_DATABASE";
         public static final String MONGO_URI = "MONGO_URI";
     }
 

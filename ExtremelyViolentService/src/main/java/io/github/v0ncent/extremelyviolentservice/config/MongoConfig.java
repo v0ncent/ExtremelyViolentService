@@ -33,6 +33,11 @@ public class MongoConfig {
         return buildMongoTemplate(Constants.EnvironmentVariables.MONGODB_SEQUENCE_DATABASE);
     }
 
+    @Bean(name = Constants.MongoTemplateReferences.USERDATA_MONGO_TEMPLATE_REFERENCE)
+    public MongoTemplate userDataMongoTemplate() {
+        return buildMongoTemplate(Constants.EnvironmentVariables.MONGODB_USERDATA_DATABASE);
+    }
+
     private MongoTemplate buildMongoTemplate(String dbName) {
         final String uri = Config.get(Constants.EnvironmentVariables.MONGO_URI);
         final String database = Config.get(dbName);
