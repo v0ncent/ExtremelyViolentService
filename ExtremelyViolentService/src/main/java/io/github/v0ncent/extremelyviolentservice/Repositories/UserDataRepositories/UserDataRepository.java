@@ -1,6 +1,6 @@
-package io.github.v0ncent.extremelyviolentservice.Repositories.UserDataRepository;
+package io.github.v0ncent.extremelyviolentservice.Repositories.UserDataRepositories;
 
-import io.github.v0ncent.extremelyviolentservice.POJOModels.UserDataModel;
+import io.github.v0ncent.extremelyviolentservice.POJOModels.UserData.UserDataModel;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

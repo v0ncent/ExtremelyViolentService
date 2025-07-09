@@ -2,8 +2,8 @@ package io.github.v0ncent.extremelyviolentservice.APIRoutes.Controllers;
 
 import io.github.v0ncent.extremelyviolentservice.APIRoutes.APIRoute;
 import io.github.v0ncent.extremelyviolentservice.Constants;
-import io.github.v0ncent.extremelyviolentservice.POJOModels.UserDataModel;
-import io.github.v0ncent.extremelyviolentservice.Repositories.UserDataRepository.UserDataRepository;
+import io.github.v0ncent.extremelyviolentservice.POJOModels.UserData.UserDataModel;
+import io.github.v0ncent.extremelyviolentservice.Repositories.UserDataRepositories.UserDataRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

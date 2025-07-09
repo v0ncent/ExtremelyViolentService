@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @Configuration
 @EnableMongoRepositories(
-        basePackages = "io.github.v0ncent.extremelyviolentservice.Repositories.UserDataRepository",
+        basePackages = "io.github.v0ncent.extremelyviolentservice.Repositories.UserDataRepositories",
         mongoTemplateRef = "userDataMongoTemplate"
 )
 public class UserDataDBConfig {

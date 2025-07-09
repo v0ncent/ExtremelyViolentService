@@ -1,5 +1,6 @@
-package io.github.v0ncent.extremelyviolentservice.POJOModels;
+package io.github.v0ncent.extremelyviolentservice.POJOModels.UserData;
 
+import io.github.v0ncent.extremelyviolentservice.POJOModels.Model;
 import lombok.Getter;
 import lombok.Setter;
 import org.bson.types.ObjectId;
