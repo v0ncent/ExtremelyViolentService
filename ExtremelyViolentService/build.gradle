@@ -38,6 +38,7 @@ dependencies {
     implementation 'io.github.cdimascio:java-dotenv:5.2.2'
     implementation 'org.mongodb:mongodb-driver-sync'
     implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.5.13'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
