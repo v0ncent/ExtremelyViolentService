@@ -14,8 +14,16 @@ public final class ComicsContentModel extends ContentModel {
 
     private final String description;
 
-    public ComicsContentModel(ObjectId id, String title, String slug, String coverImage, String date, boolean isSeries, String description) {
-        super(id, title, slug, coverImage, date);
+    public ComicsContentModel(ObjectId id,
+                              String title,
+                              String slug,
+                              String coverImage,
+                              String date,
+                              String postId,
+                              PostComment[] comments,
+                              boolean isSeries,
+                              String description) {
+        super(id, title, slug, coverImage, date, postId, comments);
         this.series = isSeries;
         this.description = description;
     }

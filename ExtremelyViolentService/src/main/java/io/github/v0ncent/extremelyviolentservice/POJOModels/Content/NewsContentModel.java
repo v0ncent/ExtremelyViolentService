@@ -12,8 +12,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class NewsContentModel extends ContentModel {
     private String html;
 
-    public NewsContentModel(ObjectId id, String title, String slug, String coverImage, String date, String html) {
-        super(id, title, slug, coverImage, date);
+    public NewsContentModel(ObjectId id,
+                            String title,
+                            String slug,
+                            String coverImage,
+                            String date,
+                            String postId,
+                            PostComment[] comments,
+                            String html) {
+        super(id, title, slug, coverImage, date, postId, comments);
         this.html = html;
     }
 
