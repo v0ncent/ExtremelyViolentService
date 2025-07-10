@@ -16,6 +16,8 @@ public class UserDataModel extends Model {
     private boolean isAdmin;
     private String imagePath;
     private String userName;
+    private boolean banned;
+    private String ipAddress;
 
     public UserDataModel(ObjectId id) {
         super(id);
