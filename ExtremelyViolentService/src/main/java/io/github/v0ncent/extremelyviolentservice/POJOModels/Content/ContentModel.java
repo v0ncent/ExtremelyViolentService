@@ -5,13 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.bson.types.ObjectId;
 
 @Setter
 @Getter
 public abstract class ContentModel extends Model {
-    protected abstract String getExcerpt();
-    protected abstract String getTags();
+    public abstract String getExcerpt();
+    public abstract String getTags();
 
     // keep so it posts these fields to db
     private final String excerpt = getExcerpt();
@@ -21,12 +20,11 @@ public abstract class ContentModel extends Model {
 
     private PostComment[] comments;
 
-    public ContentModel(ObjectId id,
+    public ContentModel(String id,
                         String title,
                         String slug,
                         String coverImage,
                         String date,
-                        String postId,
                         PostComment[] comments) {
         super(id);
         this.title = title;
@@ -34,7 +32,6 @@ public abstract class ContentModel extends Model {
         this.coverImage = coverImage;
         this.date = date;
         this.comments = comments;
-        this.postId = postId;
     }
 
     @Setter

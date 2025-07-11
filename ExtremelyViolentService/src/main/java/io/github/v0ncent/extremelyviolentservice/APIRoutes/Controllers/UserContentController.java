@@ -4,7 +4,6 @@ import io.github.v0ncent.extremelyviolentservice.APIRoutes.APIRoute;
 import io.github.v0ncent.extremelyviolentservice.Constants;
 import io.github.v0ncent.extremelyviolentservice.POJOModels.UserData.UserContentModel;
 import io.github.v0ncent.extremelyviolentservice.Repositories.UserDataRepositories.UserContentRepository;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -24,7 +23,7 @@ public final class UserContentController extends APIRoute<UserContentModel> {
     }
 
     @Override
-    public MongoRepository<UserContentModel, ObjectId> getRepository() {
+    public MongoRepository<UserContentModel, String> getRepository() {
         return userContentRepository;
     }
 

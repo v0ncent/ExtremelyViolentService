@@ -4,5 +4,5 @@ import io.github.v0ncent.extremelyviolentservice.POJOModels.UserData.BannedUsers
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface BannedUsersRepository extends MongoRepository<BannedUsersModel, ObjectId> {
+public interface BannedUsersRepository extends MongoRepository<BannedUsersModel, String> {
 }

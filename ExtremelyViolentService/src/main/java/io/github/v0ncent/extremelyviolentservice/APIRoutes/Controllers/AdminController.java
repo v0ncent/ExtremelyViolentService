@@ -4,7 +4,6 @@ import io.github.v0ncent.extremelyviolentservice.APIRoutes.APIRoute;
 import io.github.v0ncent.extremelyviolentservice.Constants;
 import io.github.v0ncent.extremelyviolentservice.POJOModels.AdminEmailModel;
 import io.github.v0ncent.extremelyviolentservice.Repositories.AdminRepository.AdminRepository;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -24,7 +23,7 @@ public final class AdminController extends APIRoute<AdminEmailModel> {
     }
 
     @Override
-    public MongoRepository<AdminEmailModel, ObjectId> getRepository() {
+    public MongoRepository<AdminEmailModel, String> getRepository() {
         return adminRepository;
     }
 

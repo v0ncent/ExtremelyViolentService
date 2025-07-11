@@ -2,15 +2,12 @@ package io.github.v0ncent.extremelyviolentservice.APIRoutes;
 
 import io.github.v0ncent.extremelyviolentservice.POJOModels.Model;
 import jakarta.servlet.http.HttpServletRequest;
-import org.bson.types.ObjectId;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.UUID;
 
 @RestController
 public abstract class APIRoute<T extends Model> {
-    public abstract MongoRepository<T, ObjectId> getRepository();
+    public abstract MongoRepository<T, String> getRepository();
     public abstract Class<T> getEntityClass();
 
     private static final Logger LOGGER = LoggerFactory.getLogger(APIRoute.class);
@@ -75,47 +73,40 @@ public abstract class APIRoute<T extends Model> {
 
     @PostMapping("/createEntry")
     public ResponseEntity<T> createEntry(HttpServletRequest request, @RequestBody T model) {
-        model.setId(new ObjectId());
+        model.setId(UUID.randomUUID().toString());
 
         logRequest(model.getId(), RequestType.POST, request);
 
         try {
             T entry = getRepository().save(model);
 
-            logResponse(model.getId().toString(), RequestType.POST, request, ResponseType.SUCCESS);
+            logResponse(model.getId(), RequestType.POST, request, ResponseType.SUCCESS);
 
             return ResponseEntity.status(HttpStatus.CREATED).body(entry);
         } catch (Exception e) {
-            logResponse(model.getId().toString(), RequestType.POST, request, ResponseType.ERROR);
+            logResponse(model.getId(), RequestType.POST, request, ResponseType.ERROR);
             LOGGER.error(e.getMessage(), e);
 
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
     }
 
-    @PutMapping("/update/{queryParam}/{queryValue}/{fieldToUpdate}/{updatedValue}")
-    public ResponseEntity<?> updateEntry(HttpServletRequest request, @PathVariable String queryParam,
-                                                  @PathVariable String queryValue, @PathVariable String fieldToUpdate,
-                                                  @PathVariable String updatedValue) {
-        logRequest(queryValue, RequestType.PUT, request);
-
-        T result;
+    @PutMapping("/update")
+    public ResponseEntity<?> updateEntry(HttpServletRequest request, @RequestBody T model) {
+        logRequest(model.getId(), RequestType.PUT, request);
 
         try {
-            final Query query = new Query(Criteria.where(queryParam).is(queryValue));
-            final Update update = new Update().set(fieldToUpdate, updatedValue);
+            getRepository().save(model);
 
-            result = mongoOperations.findAndModify(query, update, FindAndModifyOptions.options().returnNew(true).upsert(true), getEntityClass());
-
-            logResponse(queryValue, RequestType.PUT, request, ResponseType.SUCCESS);
+            logResponse(model.getId(), RequestType.PUT, request, ResponseType.SUCCESS);
         } catch (Exception e) {
-            logResponse(queryValue, RequestType.PUT, request, ResponseType.ERROR);
+            logResponse(model.getId(), RequestType.PUT, request, ResponseType.ERROR);
             LOGGER.error(e.getMessage(), e);
 
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
         }
 
-        return ResponseEntity.ok().body(result);
+        return ResponseEntity.ok().body(model);
     }
 
     @DeleteMapping("/delete/{field}/{value}")

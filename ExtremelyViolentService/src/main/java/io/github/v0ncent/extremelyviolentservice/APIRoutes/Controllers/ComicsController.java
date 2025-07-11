@@ -4,7 +4,6 @@ import io.github.v0ncent.extremelyviolentservice.APIRoutes.APIRoute;
 import io.github.v0ncent.extremelyviolentservice.Constants;
 import io.github.v0ncent.extremelyviolentservice.POJOModels.Content.ComicsContentModel;
 import io.github.v0ncent.extremelyviolentservice.Repositories.ContentRepositories.ComicsRepository;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -24,7 +23,7 @@ public final class ComicsController extends APIRoute<ComicsContentModel> {
     }
 
     @Override
-    public MongoRepository<ComicsContentModel, ObjectId> getRepository() {
+    public MongoRepository<ComicsContentModel, String> getRepository() {
         return comicsRepository;
     }
 

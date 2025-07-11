@@ -4,7 +4,6 @@ import io.github.v0ncent.extremelyviolentservice.APIRoutes.APIRoute;
 import io.github.v0ncent.extremelyviolentservice.Constants;
 import io.github.v0ncent.extremelyviolentservice.POJOModels.Content.NewsContentModel;
 import io.github.v0ncent.extremelyviolentservice.Repositories.ContentRepositories.NewsRepository;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -24,7 +23,7 @@ public final class NewsController extends APIRoute<NewsContentModel> {
     }
 
     @Override
-    public MongoRepository<NewsContentModel, ObjectId> getRepository() {
+    public MongoRepository<NewsContentModel, String> getRepository() {
         return newsRepository;
     }
 

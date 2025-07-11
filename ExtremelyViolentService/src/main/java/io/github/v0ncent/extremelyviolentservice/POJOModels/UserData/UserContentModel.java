@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Setter
@@ -15,7 +14,7 @@ public class UserContentModel extends Model {
     public String userId;
     public Comment[] comments;
 
-    public UserContentModel(ObjectId id, String userId, Comment[] comments) {
+    public UserContentModel(String id, String userId, Comment[] comments) {
         super(id);
         this.userId = userId;
         this.comments = comments;
