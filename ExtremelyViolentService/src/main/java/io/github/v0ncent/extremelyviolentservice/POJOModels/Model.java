@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 @Getter
 public abstract class Model {
     @Id
-    private String id;
+    protected String id;
 
     public Model(String id) {
         this.id = id;

@@ -1,10 +1,10 @@
 package io.github.v0ncent.extremelyviolentservice.POJOModels.Content;
 
 import io.github.v0ncent.extremelyviolentservice.POJOModels.Model;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -21,27 +21,35 @@ public abstract class ContentModel extends Model {
     private PostComment[] comments;
 
     public ContentModel(String id,
+                        String postId,
                         String title,
                         String slug,
                         String coverImage,
                         String date,
                         PostComment[] comments) {
         super(id);
+
         this.title = title;
+        this.postId = postId;
         this.slug = slug;
         this.coverImage = coverImage;
         this.date = date;
-        this.comments = comments;
+        this.comments = comments != null ? comments : new PostComment[0];
     }
 
     @Setter
     @Getter
-    @AllArgsConstructor
-    @NoArgsConstructor
     public static class PostComment {
-        private String postId;
         private String userId;
+        private String commentId;
         private String text;
         private String date;
+
+        public PostComment(String userId, String text, String date) {
+            this.userId = userId;
+            this.commentId = UUID.randomUUID().toString();
+            this.text = text;
+            this.date = date;
+        }
     }
 }

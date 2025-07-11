@@ -15,12 +15,13 @@ public final class GalleryContentModel extends ContentModel {
     public GalleryContentModel(String id,
                                String title,
                                String slug,
+                               String postId,
                                String coverImage,
                                String date,
                                PostComment[] comments,
                                long width,
                                long height) {
-        super(id, title, slug, coverImage, date, comments);
+        super(id, postId, title, slug, coverImage, date, comments);
         this.width = width;
         this.height = height;
     }

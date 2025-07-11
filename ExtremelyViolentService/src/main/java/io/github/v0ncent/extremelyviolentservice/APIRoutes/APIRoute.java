@@ -1,5 +1,6 @@
 package io.github.v0ncent.extremelyviolentservice.APIRoutes;
 
+import io.github.v0ncent.extremelyviolentservice.POJOModels.Content.ContentModel;
 import io.github.v0ncent.extremelyviolentservice.POJOModels.Model;
 import jakarta.servlet.http.HttpServletRequest;
 import org.jetbrains.annotations.Nullable;
@@ -75,9 +76,20 @@ public abstract class APIRoute<T extends Model> {
     public ResponseEntity<T> createEntry(HttpServletRequest request, @RequestBody T model) {
         model.setId(UUID.randomUUID().toString());
 
+        // if we are working with site content
+        if (model instanceof ContentModel) {
+            ((ContentModel) model).setPostId(model.getId());
+
+            ((ContentModel) model).setSlug(model.getId());
+        }
+
         logRequest(model.getId(), RequestType.POST, request);
 
         try {
+            LOGGER.info(
+                    "MODEL TO BE POSTED: {}", model
+            );
+
             T entry = getRepository().save(model);
 
             logResponse(model.getId(), RequestType.POST, request, ResponseType.SUCCESS);
