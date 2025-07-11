@@ -32,33 +32,4 @@ public class NewsContentModel extends ContentModel {
     public String getTags() {
         return Constants.Tags.NEWS_TAG;
     }
-
-    @Override
-    public String toString() {
-        StringBuilder commentsStr = new StringBuilder("[");
-        if (getComments() != null) {
-            for (int i = 0; i < getComments().length; i++) {
-                PostComment c = getComments()[i];
-                commentsStr.append(String.format(
-                        "{userId='%s', commentId='%s', text='%s', date='%s'}",
-                        c.getUserId(), c.getCommentId(), c.getText(), c.getDate()
-                ));
-                if (i < getComments().length - 1) commentsStr.append(", ");
-            }
-        }
-        commentsStr.append("]");
-
-        return "NewsContentModel{" +
-                "id='" + getId() + '\'' +
-                ", title='" + this.getTitle() + '\'' +
-                ", slug='" + this.getSlug() + '\'' +
-                ", date='" + this.getDate() + '\'' +
-                ", coverImage='" + this.getCoverImage() + '\'' +
-                ", postId='" + this.getPostId() + '\'' +
-                ", excerpt='" + this.getExcerpt() + '\'' +
-                ", tags='" + this.getTags() + '\'' +
-                ", comments=" + commentsStr +
-                ", html='" + html + '\'' +
-                '}';
-    }
 }

@@ -35,5 +35,4 @@ public final class GalleryContentModel extends ContentModel {
     public String getTags() {
         return Constants.Tags.GALLERY_TAG;
     }
-
 }

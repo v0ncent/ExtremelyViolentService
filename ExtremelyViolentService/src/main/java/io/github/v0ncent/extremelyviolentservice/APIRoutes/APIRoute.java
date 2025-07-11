@@ -86,10 +86,6 @@ public abstract class APIRoute<T extends Model> {
         logRequest(model.getId(), RequestType.POST, request);
 
         try {
-            LOGGER.info(
-                    "MODEL TO BE POSTED: {}", model
-            );
-
             T entry = getRepository().save(model);
 
             logResponse(model.getId(), RequestType.POST, request, ResponseType.SUCCESS);
