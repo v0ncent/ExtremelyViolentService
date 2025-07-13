@@ -13,11 +13,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class UserContentModel extends Model {
     public String userId;
     public Comment[] comments;
+    public AdminComment[] adminComments;
 
-    public UserContentModel(String id, String userId, Comment[] comments) {
+    public UserContentModel(String id, String userId, Comment[] comments, AdminComment[] adminComments) {
         super(id);
         this.userId = userId;
         this.comments = comments;
+        this.adminComments = adminComments;
     }
 
     @Setter
@@ -26,6 +28,22 @@ public class UserContentModel extends Model {
     @NoArgsConstructor
     public static class Comment {
         private String commentId;
+        private String postId;
+        private String postTitle;
+        private String section;
+        private String text;
+        private String date;
+        private Comment[] adminComments;
+        private boolean deletedByAdmin;
+    }
+
+    @Setter
+    @Getter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class AdminComment {
+        private String commentId;
+        private String onComment;
         private String postId;
         private String postTitle;
         private String section;
