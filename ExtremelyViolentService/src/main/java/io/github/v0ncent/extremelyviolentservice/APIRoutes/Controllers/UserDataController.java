@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/userData")
-public class UserDataController extends APIRoute<UserDataModel> {
+public final class UserDataController extends APIRoute<UserDataModel> {
     @Autowired
     private UserDataRepository userDataRepository;
 

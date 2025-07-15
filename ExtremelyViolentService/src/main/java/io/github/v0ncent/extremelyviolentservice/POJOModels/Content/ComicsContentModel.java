@@ -20,10 +20,10 @@ public final class ComicsContentModel extends ContentModel {
                               String postId,
                               String date,
                               PostComment[] comments,
-                              boolean isSeries,
+                              boolean series,
                               String description) {
         super(id, postId, title, slug, coverImage, date, comments);
-        this.series = isSeries;
+        this.series = series;
         this.description = description;
     }
 
