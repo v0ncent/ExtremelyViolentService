@@ -1,5 +1,6 @@
 package io.github.v0ncent.extremelyviolentservice.POJOModels.Content;
 
+import com.mongodb.lang.Nullable;
 import io.github.v0ncent.extremelyviolentservice.POJOModels.Model;
 import lombok.Getter;
 import lombok.Setter;
@@ -40,13 +41,19 @@ public abstract class ContentModel extends Model {
     @Setter
     @Getter
     public static class PostComment {
+        private String replyingTo;
         private String userId;
         private String commentId;
         private String text;
         private String date;
         private AdminComment[] adminComments;
 
-        public PostComment(String userId, String text, String date, AdminComment[] adminComments) {
+        public PostComment(@Nullable String replyingTo,
+                           String userId,
+                           String text,
+                           String date,
+                           AdminComment[] adminComments) {
+            this.replyingTo = replyingTo;
             this.userId = userId;
             this.commentId = UUID.randomUUID().toString();
             this.text = text;

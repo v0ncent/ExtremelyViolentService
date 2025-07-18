@@ -27,6 +27,7 @@ public class UserContentModel extends Model {
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Comment {
+        private String replyingTo;
         private String commentId;
         private String postId;
         private String postTitle;
